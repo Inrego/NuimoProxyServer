@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuimoHass.Shared", "NuimoHass.Shared\NuimoHass.Shared.csproj", "{1A1AF483-35A4-4DE0-A231-5DF128C40F34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuimoHass.WPF", "NuimoHass.WPF\NuimoHass.WPF.csproj", "{DE4B31D1-DCF9-4525-A94C-9EDAD0243EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuimoHass.Service", "NuimoHass.Service\NuimoHass.Service.csproj", "{4EE81B17-4DB3-44A4-ACE0-1131D1E9F9CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A1AF483-35A4-4DE0-A231-5DF128C40F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1AF483-35A4-4DE0-A231-5DF128C40F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1AF483-35A4-4DE0-A231-5DF128C40F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1AF483-35A4-4DE0-A231-5DF128C40F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4B31D1-DCF9-4525-A94C-9EDAD0243EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4B31D1-DCF9-4525-A94C-9EDAD0243EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4B31D1-DCF9-4525-A94C-9EDAD0243EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4B31D1-DCF9-4525-A94C-9EDAD0243EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE81B17-4DB3-44A4-ACE0-1131D1E9F9CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE81B17-4DB3-44A4-ACE0-1131D1E9F9CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE81B17-4DB3-44A4-ACE0-1131D1E9F9CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE81B17-4DB3-44A4-ACE0-1131D1E9F9CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

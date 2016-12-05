@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="NuimoHass.WPF.ServiceDomainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NuimoHass.WPF"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <ComboBox x:Name="ServiceDomainComboBox" 
+                  ItemsSource="{Binding ServiceDomains, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                  materialDesign:HintAssist.Hint="Service Domain" 
+                  DisplayMemberPath="Domain" 
+                  SelectedValuePath="Domain" 
+                  SelectedValue="{Binding SelectedServiceDomain, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+        <ComboBox x:Name="EntitiesComboBox" 
+                  materialDesign:HintAssist.Hint="Entity (Optional, but recommended)" 
+                  DisplayMemberPath="FriendlyName" 
+                  SelectedValuePath="Id" 
+                  SelectedValue="{Binding SelectedEntity}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+        <ComboBox x:Name="ServicesComboBox" 
+                  materialDesign:HintAssist.Hint="Service" 
+                  DisplayMemberPath="ServiceName" 
+                  SelectedValuePath="ServiceName" 
+                  SelectedValue="{Binding SelectedService}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+        <TextBlock>Parameters:</TextBlock>
+        <ItemsControl>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

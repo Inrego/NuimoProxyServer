@@ -1,0 +1,72 @@
+﻿<Window x:Class="NuimoHass.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NuimoHass.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="585" Width="920"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:shared="clr-namespace:NuimoHass.Shared;assembly=NuimoHass.Shared"
+        xmlns:viewModels="clr-namespace:NuimoHass.WPF.ViewModels"
+        Initialized="Window_Initialized"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Window.Resources>
+        <local:DrawerListHeightConverter x:Key="MyConverter" />
+    </Window.Resources>
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <DockPanel LastChildFill="True" Name="DockLayout">
+            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="Standard" MinWidth="170" Height="{Binding ElementName=DockLayout, Path=ActualHeight}">
+                <StackPanel>
+                    <Button x:Name="SettingsButton" Style="{StaticResource MaterialDesignFlatButton}"
+                        Height="56px" Click="SettingsButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" />
+                            <TextBlock Margin="8 0 0 0">SETTINGS</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <materialDesign:ColorZone Name="DevicesHeader" Height="56" Mode="PrimaryMid">
+                        <TextBlock Text="Nuimo Devices" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    </materialDesign:ColorZone>
+                    <ListBox x:Name="DeviceList" ItemsSource="{Binding Devices}" MaxHeight="{Binding ElementName=DockLayout, Path=ActualHeight, Converter={StaticResource MyConverter}, ConverterParameter=56}" SelectionChanged="DeviceList_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="viewModels:NuimoDevice">
+                                <StackPanel Orientation="Vertical" Margin="32 0 32 0">
+                                    <TextBlock Text="{Binding FriendlyName}" />
+                                    <TextBlock Text="{Binding Path=Id, StringFormat='Id: {0}'}" FontSize="12" Foreground="{DynamicResource MaterialDesignBodyLight}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <materialDesign:ColorZone Name="ScenesHeader" Height="56" Mode="PrimaryMid">
+                        <Grid>
+                            <TextBlock Text="Scenes" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                            <Button x:Name="AddSceneButton" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="24" Width="24"
+                                Margin="0 0 8 0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="AddSceneButton_Click">
+                                <materialDesign:PackIcon Kind="Plus" Height="18" Width="18" />
+                            </Button>
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <ListBox x:Name="SceneList" ItemsSource="{Binding Scenes}" MaxHeight="{Binding ElementName=DeviceList, Path=MaxHeight}" SelectionChanged="SceneList_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="viewModels:Scene">
+                                <StackPanel Orientation="Horizontal" Margin="32 0 32 0">
+                                    <local:LedIcon x:Name="SceneIcon" Matrix="{Binding LedMatrix}" Margin="0,0,16,0" />
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </materialDesign:ColorZone>
+            <ContentControl x:Name="ContentPanel" Margin="32">
+                
+            </ContentControl>
+        </DockPanel>
+    </materialDesign:DialogHost>
+</Window>
